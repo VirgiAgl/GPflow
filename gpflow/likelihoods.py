@@ -195,6 +195,9 @@ class Poisson(Likelihood):
     def logp(self, F, Y):
         return densities.poisson(self.invlink(F) * self.binsize, Y)
 
+    def predict_mean_and_var(self, Fmu, Fvar):
+        return Fmu, Fvar
+
     def conditional_variance(self, F):
         return self.invlink(F) * self.binsize
 
